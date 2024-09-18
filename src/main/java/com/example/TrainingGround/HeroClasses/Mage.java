@@ -52,7 +52,7 @@ public class Mage extends Hero {
                     System.out.println("Не могу применить способность, нету маны");
                 }
                 break;
-            default: System.out.println("Ты че придумал, Вар, у тебя такой способности нету");
+            default: System.out.println("Ты че придумал, Маг, у тебя такой способности нету");
         }
     }
 
