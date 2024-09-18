@@ -1,14 +1,13 @@
 package com.example.TrainingGround.EnumHeroAbilityClasses;
 
-public enum WarriorAbility {
-    Hero_Strike ("Удар героя", 200, 30),
-    Mortal_Strike("Смертельный удар", 350, 50);
+public enum ArcherAbility {
+    Power_Shot ("Заряженный выстрел", 200, 30);
 
     private final String title;
     private final int damage;
     private final int manaCost;
 
-    WarriorAbility(String title, int damage, int manaCost) {
+    ArcherAbility(String title, int damage, int manaCost) {
         this.title = title;
         this.damage = damage;
         this.manaCost = manaCost;
@@ -20,9 +19,5 @@ public enum WarriorAbility {
 
     public int getManaCost() {
         return manaCost;
-    }
-
-    public String getTitle() {
-        return title;
     }
 }

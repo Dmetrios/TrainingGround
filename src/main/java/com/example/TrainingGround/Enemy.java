@@ -27,7 +27,7 @@ abstract public class Enemy implements Mortal {
 
     @Override
     public boolean isAlive() {
-        if(this.health >=0)
+        if(this.health >0)
             return true;
         else {
             deth();
@@ -35,7 +35,7 @@ abstract public class Enemy implements Mortal {
         }
     }
 
-    public void attackHero(Hero hero, Enum e){}
+    public void attackHero(Hero hero){}
 
     public void takeDamage(int damage) {
         setHealth(this.health - damage);

@@ -38,16 +38,16 @@ public class Warrior extends Hero {
     public void applyingAbility(Enemy enemy, Enum e) {
         switch (e) {
             case WarriorAbility.Hero_Strike:
-                if (getMana() > 10){
-                    enemy.takeDamage(200);
-                    setMana(getMana()-10);
+                if (getMana() > WarriorAbility.Hero_Strike.getManaCost()){
+                    enemy.takeDamage(WarriorAbility.Hero_Strike.getDamage());
+                    setMana(getMana()-WarriorAbility.Hero_Strike.getManaCost());
                 }
                 else System.out.println("Не могу применить способность, нету маны");
                 break;
             case WarriorAbility.Mortal_Strike:
-                if (getMana()>25){
-                    enemy.takeDamage(350);
-                    setMana(getMana()-25);
+                if (getMana()>WarriorAbility.Mortal_Strike.getManaCost()){
+                    enemy.takeDamage(WarriorAbility.Mortal_Strike.getDamage());
+                    setMana(getMana()-WarriorAbility.Mortal_Strike.getManaCost());
                 }
                 else {
                     System.out.println("Не могу применить способность, нету маны");

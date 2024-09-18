@@ -21,4 +21,8 @@ public enum LichAbility {
     public int getManaCost() {
         return manaCost;
     }
+
+    public String getTitle() {
+        return title;
+    }
 }

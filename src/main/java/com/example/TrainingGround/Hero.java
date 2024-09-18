@@ -18,7 +18,7 @@ abstract public class Hero implements Mortal {
 
     @Override
     public boolean isAlive() {
-        if(this.health >= 0)
+        if(this.health > 0)
             return true;
         else {
             death();

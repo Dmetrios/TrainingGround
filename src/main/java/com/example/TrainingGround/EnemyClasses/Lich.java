@@ -16,12 +16,10 @@ public class Lich extends Enemy {
 
 
     @Override
-    public void attackHero(Hero hero, Enum e) {
-        if (hero.isAlive()) {
-            if (Math.random() * 100d > 100d - BASIC_CRITICAL_CHANCE*100d)
-                hero.takeDamage(BASIC_DAMAGE * 2);
-            else hero.takeDamage(BASIC_DAMAGE);
-        }
+    public void attackHero(Hero hero) {
+        if (Math.random() * 100d > 100d - BASIC_CRITICAL_CHANCE*100d)
+            hero.takeDamage(BASIC_DAMAGE * 2);
+        else hero.takeDamage(BASIC_DAMAGE);
     }
 
     @Override
@@ -48,12 +46,7 @@ public class Lich extends Enemy {
 
     @Override
     public boolean isAlive() {
-        if(getHealth() > 0)
-            return true;
-        else {
-            deth();
-            return false;
-        }
+        return super.isAlive();
     }
 
     @Override
@@ -65,5 +58,9 @@ public class Lich extends Enemy {
     @Override
     public void takeDamage(int damage) {
         super.takeDamage(damage);
+    }
+
+    public void getInfo(){
+        System.out.println("Health: " + getHealth() + " Mana: " + getMana());
     }
 }
