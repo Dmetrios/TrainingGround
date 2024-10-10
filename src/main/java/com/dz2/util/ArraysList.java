@@ -2,8 +2,7 @@ package com.dz2.util;
 
 import java.util.*;
 
-
-public class ArraysList<E> implements List<E>{
+public class ArraysList<E> implements List<E> {
 
     private final static int DEFAULT_V = 10;
 
@@ -30,10 +29,10 @@ public class ArraysList<E> implements List<E>{
                     initial_V);
     }
 
-    public ArraysList(Collection <? extends E> collection){
+    public ArraysList(Collection<? extends E> collection){
         Object[] a = collection.toArray();
         if ((this.size = a.length) != 0){
-            if(collection.getClass() == ArraysList.class){
+            if(collection.getClass() == com.dz2.util.ArraysList.class){
                 this.arrayData = a;
             }
             else {
@@ -203,6 +202,7 @@ public class ArraysList<E> implements List<E>{
     public List<E> subList(int fromIndex, int toIndex) {
         return List.of();
     }
+
     @SuppressWarnings("unchecked")
     public boolean isSorted(){
         int count = 0;

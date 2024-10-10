@@ -2,11 +2,15 @@ package com.example.TrainingGround;
 
 import com.example.TrainingGround.EnemyClasses.Lich;
 import com.example.TrainingGround.EnemyClasses.Zombie;
-import com.example.TrainingGround.EnumEnemyAbility.LichAbility;
-import com.example.TrainingGround.EnumHeroAbilityClasses.WarriorAbility;
 import com.example.TrainingGround.HeroClasses.Archer;
 import com.example.TrainingGround.HeroClasses.Mage;
 import com.example.TrainingGround.HeroClasses.Warrior;
+import com.example.TrainingGround.Weapons.Arbalest;
+import com.example.TrainingGround.Weapons.DoubleAxe;
+import com.example.TrainingGround.Weapons.Stick;
+import com.example.TrainingGround.utils.MeleeWeapons;
+import com.example.TrainingGround.utils.RangeWeapons;
+import com.example.TrainingGround.utils.Weapon;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -15,13 +19,19 @@ import java.util.Scanner;
 public class BattleGround {
     public static void main(String[] args) {
         //Heroes
-        Warrior warrior = new Warrior("BladeDeath", 2000, 300, 100, 50);
-        Archer archer = new Archer("Ewqetsfa", 1000, 150, 150, 70);
-        Mage mage = new Mage("Magician", 500, 500, 50, 40);
+        MeleeWeapons doubleAxe = new DoubleAxe(0, "Shadow More", 100);
+        MeleeWeapons stick = new Stick(1, "Eternal cold", 50);
+        RangeWeapons arbalest = new Arbalest(0, "Arbalest", 150);
+
+        Warrior<MeleeWeapons> warrior = new Warrior<MeleeWeapons>("BladeDeath", 2000, 300, 100, 50, doubleAxe);
+        Archer<RangeWeapons> archer = new Archer<RangeWeapons>("Ewqetsfa", 1000, 150, 150, 70, arbalest);
+        Mage<MeleeWeapons> mage = new Mage<MeleeWeapons>("Magician", 500, 500, 50, 40, stick);
 
         //Enemies
         Lich lich = new Lich(1000, 1000);
         Zombie zombie = new Zombie(1000, 100);
+
+        warrior.attackEnemy(lich);
 
         ArrayList<Enemy> enemies = new ArrayList<>();
         enemies.add(lich);

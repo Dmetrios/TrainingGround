@@ -3,17 +3,21 @@ package com.example.TrainingGround.HeroClasses;
 import com.example.TrainingGround.Enemy;
 import com.example.TrainingGround.EnumHeroAbilityClasses.ArcherAbility;
 import com.example.TrainingGround.Hero;
+import com.example.TrainingGround.utils.RangeWeapons;
 
-public class Archer extends Hero {
+public class Archer<E extends RangeWeapons> extends Hero {
 
     private int damage;
     private double criticalChance;
+    private RangeWeapons rangeWeapons;
 
-    public Archer(String name, int health, int mana, int damage, double criticalChance) {
+    public Archer(String name, int health, int mana, int damage, double criticalChance, RangeWeapons rangeWeapons) {
         super(name, health, mana);
         this.damage = damage;
         this.criticalChance = criticalChance;
+        this.rangeWeapons = rangeWeapons;
     }
+
     @Override
     public boolean isAlive() {
         return super.isAlive();
@@ -23,8 +27,8 @@ public class Archer extends Hero {
     public void attackEnemy(Enemy enemy) {
         if (enemy.isAlive()) {
             if (Math.random() * 100d > 100d - criticalChance)
-                enemy.takeDamage(damage * 2);
-            else enemy.takeDamage(damage);
+                enemy.takeDamage(damage+ rangeWeapons.getDamage() * 2);
+            else enemy.takeDamage(damage+rangeWeapons.getDamage());
         }
     }
 

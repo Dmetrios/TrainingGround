@@ -3,17 +3,21 @@ package com.example.TrainingGround.HeroClasses;
 import com.example.TrainingGround.Enemy;
 import com.example.TrainingGround.EnumHeroAbilityClasses.WarriorAbility;
 import com.example.TrainingGround.Hero;
+import com.example.TrainingGround.utils.MeleeWeapons;
 
-public class Warrior extends Hero {
+public class Warrior<E extends MeleeWeapons> extends Hero {
 
     private int damage;
     private double criticalChance;
+    private MeleeWeapons meleeWeapons;
 
-    public Warrior(String name, int health, int mana, int damage, double criticalChance) {
+    public Warrior(String name, int health, int mana, int damage, double criticalChance, MeleeWeapons meleeWeapons) {
         super(name, health, mana);
         this.damage = damage;
         this.criticalChance = criticalChance;
+        this.meleeWeapons = meleeWeapons;
     }
+
 
     @Override
     public boolean isAlive() {
@@ -24,8 +28,8 @@ public class Warrior extends Hero {
     public void attackEnemy(Enemy enemy) {
         if (enemy.isAlive()) {
             if (Math.random() * 100d > 100d - criticalChance)
-                enemy.takeDamage(damage * 2);
-            else enemy.takeDamage(damage);
+                enemy.takeDamage(damage+ meleeWeapons.getDamage() * 2);
+            else enemy.takeDamage(damage + meleeWeapons.getDamage());
         }
     }
 

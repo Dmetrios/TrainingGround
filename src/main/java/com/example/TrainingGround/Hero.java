@@ -1,5 +1,8 @@
 package com.example.TrainingGround;
 
+import com.example.TrainingGround.utils.Mortal;
+import com.example.TrainingGround.utils.Weapon;
+
 abstract public class Hero implements Mortal {
 
     private String name;

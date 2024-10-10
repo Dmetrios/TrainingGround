@@ -1,5 +1,7 @@
 package com.example.TrainingGround;
 
+import com.example.TrainingGround.utils.Mortal;
+
 abstract public class Enemy implements Mortal {
     private int health;
     private int mana;
